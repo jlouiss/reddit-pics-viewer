@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { PicsService } from './pics.service';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-pics',
@@ -7,18 +12,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PicsComponent implements OnInit {
 
-  constructor() {
+  posts$: Observable<any[]>;
+
+  constructor(private picsService: PicsService) {
   }
 
   ngOnInit() {
+    this.posts$ = this.picsService.getSubredditListing('top')
+      .pipe(map((response: any) => response.data.children));
   }
 
-  // public getInfo() {
-  //   return this.http.get('https://www.reddit.com/r/pics/api/info');
-  // }
-  // export type SubredditListingEndpoint = 'hot' | 'new' | 'random' | 'rising' | 'top' | 'controversial';
+  getInfo() {
+    return this.picsService.getInfo();
+  }
 
-  // public getSubredditListing(listingType: SubredditListingEndpoint = 'random') {
-  //   return this.http.get(`https://www.reddit.com/r/pics/${listingType}`);
-  // }
+  getListing() {
+    return this.picsService.getSubredditListing();
+  }
+
+
 }

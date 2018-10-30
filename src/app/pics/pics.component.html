@@ -1,0 +1,24 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Welcome to <code>/r/pics</code>!</h1>
+    <p class="lead">See what's trending</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 cards">
+
+    <div class="card my-3" *ngFor="let post of posts$ | async" style="width: 18rem;">
+      <img [src]="post.data.thumbnail" [alt]="post.data.title" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{ post.data.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">+{{post.data.ups}} | -{{post.data.downs}}</h6>
+        <p class="card-text">
+          Posted by <code>/u/{{post.data.author}}</code>
+        </p>
+        <a href="" class="btn btn-primary">View</a>
+      </div>
+    </div>
+
+  </div>
+</div>
