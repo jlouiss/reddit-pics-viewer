@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthorizationService } from './authorization.service';
+import { AuthorizationService } from './home/authorization.service';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({

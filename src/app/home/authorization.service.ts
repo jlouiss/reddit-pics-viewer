@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
-import { environment as env } from '../environments/environment';
+import { environment as env } from '../../environments/environment';
 
 
 @Injectable({

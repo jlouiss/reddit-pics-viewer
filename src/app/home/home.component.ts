@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { AuthorizationService } from '../authorization.service';
+import { AuthorizationService } from './authorization.service';
 import { environment as env } from '../../environments/environment';
 
 
