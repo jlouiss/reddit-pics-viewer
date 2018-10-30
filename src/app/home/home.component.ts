@@ -23,11 +23,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     const { queryParams } = this.route.snapshot;
 
-    if (queryParams.error || !queryParams.code || queryParams.state !== env.random_string || !localStorage.getItem('rpv_access_token'))
+    if (queryParams.error || !queryParams.code || queryParams.state !== env.random_string || !localStorage.getItem('rpv_access_token')) {
       this.router.navigate(['/home']);
-
-    console.log(queryParams);
-    console.log('passing', queryParams);
+      return;
+    }
 
     this.authorizationService.handleAuthorizationGrant(queryParams.code)
       .subscribe(response => {
